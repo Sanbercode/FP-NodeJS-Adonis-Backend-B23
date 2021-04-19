@@ -3,6 +3,10 @@
 - Link Deployment : https://api-sb23-adonis.herokuapp.com/
 
 ## API endpoints
+
+  #### Usage 
+- https://api-sb23-adonis.herokuapp.com/{endpoint route}
+
   ### VENUES
 | Route  | HTTP Method | Middleware  | Handler |
 | ------------- | ------------- | ------------- | ------------- |
@@ -41,3 +45,5 @@
 | /api/v1/regenerate-otp  | POST  |   | AuthController.regenerateOtp  |
 | /api/v1/login  | POST  | verify  | AuthController.login  |
 
+
+# TERIMA KASIH
