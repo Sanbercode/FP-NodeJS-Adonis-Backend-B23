@@ -98,7 +98,7 @@ export default class VenuesController {
    *         description: Venue not found
    * */
   public async show ({response, params}: HttpContextContract) {
-    let id = params.id;
+    const id = params.id;
     try {
       const data = await Venue.query()
         .preload('fields', (query) => {
