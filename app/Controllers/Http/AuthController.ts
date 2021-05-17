@@ -5,6 +5,7 @@ import OtpCode from "App/Models/OtpCode";
 import {DateTime} from "luxon";
 import {rules, schema} from "@ioc:Adonis/Core/Validator";
 import Mail from "@ioc:Adonis/Addons/Mail";
+import Database from "@ioc:Adonis/Lucid/Database";
 
 export default class AuthController {
   /**
@@ -74,6 +75,17 @@ export default class AuthController {
       response_message: "Login Success",
       token
     })
+  }
+
+  public async logout ({response, auth}: HttpContextContract) {
+    const userId = auth.user?.id;
+    // @ts-ignore
+    const token = await Database.from('api_tokens').where('user_id', userId).delete();
+
+    return response.status(200).json({
+      "response_code": "00",
+      "response_message": "Logout Berhasil",
+    });
   }
 
   /**

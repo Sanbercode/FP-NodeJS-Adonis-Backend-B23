@@ -63,6 +63,7 @@ Route.group(() => {
   /* AUTH ROUTING */
   Route.post('/register', 'AuthController.register');
   Route.post('/login', 'AuthController.login').middleware('verify');
+  Route.post('/logout', 'AuthController.logout').middleware('auth');
   Route.post('/verification', 'AuthController.verification');
   Route.post('/regenerate-otp', 'AuthController.regenerateOtp');
 
